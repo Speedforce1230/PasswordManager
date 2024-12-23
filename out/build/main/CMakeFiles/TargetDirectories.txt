@@ -1,3 +1,0 @@
-F:/QT_Password_Manager/out/build/main/CMakeFiles/PasswordManager.dir
-F:/QT_Password_Manager/out/build/main/CMakeFiles/ALL_BUILD.dir
-F:/QT_Password_Manager/out/build/main/CMakeFiles/ZERO_CHECK.dir
