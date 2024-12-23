@@ -1,21 +1,30 @@
 #include "frame.h"
+#include "characters.h"
 #include <QLineEdit>
 #include <QTextEdit>
 #include <QLabel>
-#include <array>
+#include <memory>
+
+
 class PasswordFrame : public CustomFrame{
 public:
     PasswordFrame();
-    std::unique_ptr<CustomFrame> ReturnPasswordFrame(bool create=true);
-    std::unique_ptr<CustomButton> generate_button;
+    unique_ptr<CustomFrame> ReturnPasswordFrame(bool create=true);
+    CustomButton* getButton(const QString& key);
+    QLabel* getLabel(const QString& key);
+    QLineEdit* getEntry(const QString& key);
 private:
-    std::unique_ptr<CustomFrame> password_frame;
-    std::unique_ptr<QLineEdit> username_entry;
-    std::unique_ptr<QLineEdit> password_entry;
-    std::unique_ptr<QLabel> label_name;
-    std::unique_ptr<QLabel> label_password;
-    std::unique_ptr<CustomButton> save_button;
-    std::unique_ptr<QBoxLayout> password_frame_layout;
+    std::unordered_map<QString, std::variant<CustomButton*,CustomFrame*,QLineEdit*,QLabel*>> password_widget_cache;
+    unique_ptr<CustomButton> generate_button;
+    unique_ptr<CustomFrame> password_frame;
+    unique_ptr<QLineEdit> username_entry;
+    unique_ptr<QLineEdit> password_entry;
+    unique_ptr<QLabel> label_name;
+    unique_ptr<QLabel> label_password;
+    unique_ptr<CustomButton> save_button;
+    unique_ptr<QBoxLayout> password_frame_layout;
+    
+    void cacheWidgets();
     enum{
         ID_NUMBERS = 0,
         ID_LOWER_ALPHABETS=1,

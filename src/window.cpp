@@ -27,7 +27,7 @@ void MainWindow::ManageWindows(const QString& window_name){
     }
 }
 void MainWindow::ConnectEventHandlers(){
-    connect(home_frame->generate_password.get(),&QPushButton::clicked,this,[=](){
+    connect(home_frame->getButton("generate_password"),&QPushButton::clicked,this,[=](){
         ManageWindows("Generate");
     });
 }

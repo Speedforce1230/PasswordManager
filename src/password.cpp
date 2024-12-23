@@ -17,6 +17,7 @@ PasswordFrame::PasswordFrame(){
 	password_frame_layout->addWidget(generate_button.get());
 	password_frame_layout->addWidget(save_button.get());
 	password_frame->setLayout(password_frame_layout.get());
+	cacheWidgets();
 }
 std::unique_ptr<CustomFrame> PasswordFrame::ReturnPasswordFrame(bool create){
 	return std::move(password_frame);
@@ -53,4 +54,41 @@ void PasswordFrame::GeneratePassword(){
 	}
 	
 	password_entry->setText(password);
+}
+void PasswordFrame::cacheWidgets(){
+	password_widget_cache["user_entry"]  = username_entry.get();
+	password_widget_cache["password_entry"] = password_entry.get();
+	password_widget_cache["label_password"] = label_password.get();
+	password_widget_cache["label_name"] = label_name.get();
+	password_widget_cache["generate_button"] = generate_button.get();
+	password_widget_cache["save_button"] = save_button.get();
+}
+
+
+CustomButton* PasswordFrame::getButton(const QString& key){
+	if (password_widget_cache.find(key) != password_widget_cache.end()){
+		CustomButton* button = std::get<CustomButton*>(password_widget_cache[key]);
+		return button;
+	}
+	else{
+		return nullptr;
+	}
+}
+QLineEdit* PasswordFrame::getEntry(const QString& key){
+	if (password_widget_cache.find(key) != password_widget_cache.end()){
+		QLineEdit* entry = std::get<QLineEdit*>(password_widget_cache[key]);
+		return entry;
+	}
+	else{
+		return nullptr;
+	}
+}
+QLabel* PasswordFrame::getLabel(const QString& key){
+	if (password_widget_cache.find(key) != password_widget_cache.end()){
+		QLabel* label = std::get<QLabel*>(password_widget_cache[key]);
+		return label;
+	}
+	else{
+		return nullptr;
+	}
 }
