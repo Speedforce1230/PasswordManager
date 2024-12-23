@@ -300,6 +300,12 @@
 	"HEADERS" : 
 	[
 		[
+			"F:/QT_Password_Manager/include/all_frames.h",
+			"MU",
+			"6YEA5652QU/moc_all_frames.cpp",
+			null
+		],
+		[
 			"F:/QT_Password_Manager/include/button.h",
 			"MU",
 			"6YEA5652QU/moc_button.cpp",
@@ -321,6 +327,18 @@
 			"F:/QT_Password_Manager/include/frame.h",
 			"MU",
 			"6YEA5652QU/moc_frame.cpp",
+			null
+		],
+		[
+			"F:/QT_Password_Manager/include/frame_home.h",
+			"MU",
+			"6YEA5652QU/moc_frame_home.cpp",
+			null
+		],
+		[
+			"F:/QT_Password_Manager/include/frame_password.h",
+			"MU",
+			"6YEA5652QU/moc_frame_password.cpp",
 			null
 		],
 		[

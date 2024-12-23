@@ -7,7 +7,6 @@ F:/QT_Password_Manager/out/build/main/PasswordManager_autogen/include_Debug/6YEA
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/q20type_traits.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/q20utility.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/q23utility.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qabstracteventdispatcher.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qanystringview.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qarraydata.h \
@@ -17,7 +16,6 @@ F:/QT_Password_Manager/out/build/main/PasswordManager_autogen/include_Debug/6YEA
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qatomic.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qbasicatomic.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qbytearray.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qbytearrayalgorithms.h \
@@ -34,16 +32,10 @@ F:/QT_Password_Manager/out/build/main/PasswordManager_autogen/include_Debug/6YEA
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qcontainerinfo.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qcontainertools_impl.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qcontiguouscache.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qcoreapplication.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qcoreapplication_platform.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qdatastream.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qdebug.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qendian.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qeventloop.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qflags.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qfloat16.h \
@@ -61,7 +53,6 @@ F:/QT_Password_Manager/out/build/main/PasswordManager_autogen/include_Debug/6YEA
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qlatin1stringview.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qline.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qlist.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qlocale.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qlogging.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qmalloc.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qmap.h \
@@ -71,7 +62,6 @@ F:/QT_Password_Manager/out/build/main/PasswordManager_autogen/include_Debug/6YEA
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qmetatype.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qminmax.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qnamespace.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtCore/qnativeinterface.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qnumeric.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qobject.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtCore/qobject_impl.h \
@@ -144,11 +134,8 @@ F:/QT_Password_Manager/out/build/main/PasswordManager_autogen/include_Debug/6YEA
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qfontinfo.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qfontmetrics.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qfontvariableaxis.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtGui/qguiapplication.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtGui/qguiapplication_platform.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qicon.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qimage.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtGui/qinputmethod.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qpalette.h \
@@ -164,13 +151,11 @@ F:/QT_Password_Manager/out/build/main/PasswordManager_autogen/include_Debug/6YEA
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qtransform.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtGui/qwindowdefs_win.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/QApplication \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/QBoxLayout \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/QFrame \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/QPushButton \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/QWidget \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qabstractbutton.h \
-  C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qframe.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qgridlayout.h \
@@ -182,5 +167,4 @@ F:/QT_Password_Manager/out/build/main/PasswordManager_autogen/include_Debug/6YEA
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qwidget.h \
-  F:/QT_Password_Manager/include/button.h \
-  F:/QT_Password_Manager/include/characters.h
+  F:/QT_Password_Manager/include/button.h

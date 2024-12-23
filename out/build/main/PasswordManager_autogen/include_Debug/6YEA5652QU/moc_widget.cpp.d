@@ -186,5 +186,4 @@ F:/QT_Password_Manager/out/build/main/PasswordManager_autogen/include_Debug/6YEA
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qwidget.h \
   F:/QT_Password_Manager/include/button.h \
-  F:/QT_Password_Manager/include/characters.h \
   F:/QT_Password_Manager/include/frame.h
