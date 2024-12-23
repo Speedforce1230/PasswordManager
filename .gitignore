@@ -1,0 +1,21 @@
+# Ignore build directory
+build/
+out/
+
+# Ignore Visual Studio Code settings (optional)
+.vscode/
+
+# Ignore OS generated files
+*.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.log
+
+# Ignore other CMake generated files
+*.cbp
+*.user
+*.swp
+*.swo
+*.pdb
