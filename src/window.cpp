@@ -20,10 +20,15 @@ void MainWindow::ManageWindows(const QString& window_name){
     }
     else{
         qDebug() << "Frame is null\n Here's all the available keys";
-        auto test = cache.getFrameCache();
-        for (const auto& pair: test) {
-            qDebug() <<  pair.first;
+        auto test = cache.getCache<unordered_map<QString,shared_ptr<CustomFrame>>>("frame_cache");
+        if (test) {
+            for (const auto& pair : *test) {
+                qDebug() << pair.first;
+            }
+            return;
         }
+        qDebug() << "Cache doesn't exist in test";
+        return;
     }
 }
 // void MainWindow::ConnectEventHandlers(){

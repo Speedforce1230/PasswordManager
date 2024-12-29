@@ -10,15 +10,10 @@ shared_ptr<CustomFrame> Cache::getFrame(const QString& frame_key){
     qDebug() << "Failed to get frame";
     return nullptr;
 }
-unordered_map<QString,shared_ptr<CustomFrame>> Cache::getFrameCache(){
-    return frame_cache;
+void Cache::cacheCache() {
+    all_caches["frame_cache"] = std::make_shared<unordered_map<QString, shared_ptr<CustomFrame>>>(frame_cache);
+    all_caches["label_cache"] = std::make_shared<unordered_map<QString, shared_ptr<QLabel>>>(label_cache);
+    all_caches["button_cache"] = std::make_shared<unordered_map<QString, shared_ptr<CustomButton>>>(button_cache);
+    all_caches["entry_cache"] = std::make_shared<unordered_map<QString, shared_ptr<QLineEdit>>>(entry_cache);
 }
-unordered_map<QString, shared_ptr<CustomButton>> Cache::getButtonCache() {
-    return button_cache;
-}
-unordered_map<QString, shared_ptr<QLabel>> Cache::getLabelCache() {
-    return label_cache;
-}
-unordered_map<QString, shared_ptr<QLineEdit>> Cache::getEntryCache() {
-    return entry_cache;
-}
+

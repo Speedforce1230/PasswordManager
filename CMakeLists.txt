@@ -7,9 +7,11 @@ set(CMAKE_PREFIX_PATH "C:\\Qt\\6.9.0\\msvc2022_64")
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 qt_standard_project_setup()
 include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/template)
 
 file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)
 file(GLOB_RECURSE HEADERS ${CMAKE_SOURCE_DIR}/include/*.h)
-qt_add_executable(PasswordManager ${SOURCES} ${HEADERS})
+file(GLOB_RECURSE TEMPLATE_SOURCES ${CMAKE_SOURCE_DIR}/template/*.tpp)
+qt_add_executable(PasswordManager ${SOURCES} ${TEMPLATE_SOURCES} ${HEADERS})
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Widgets)
 
