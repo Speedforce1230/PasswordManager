@@ -12,7 +12,7 @@ class CentralWidget : public QWidget{
     Q_OBJECT
 public:
     CentralWidget(QWidget* parent=nullptr);
-    void setCurrentFrame(std::unique_ptr<CustomFrame> frame);
+    void setCurrentFrame(std::shared_ptr<CustomFrame> frame);
     std::unique_ptr<QStackedWidget> main_widget_stack;
 private:
     std::unique_ptr<QVBoxLayout> main_layout;

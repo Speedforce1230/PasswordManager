@@ -14,6 +14,6 @@ public:
     CustomButton(const QString& text, QWidget* parent=nullptr);
     CustomButton(const QIcon& icon, const QString& text, QWidget* parent=nullptr);
 private:
-
+    void Paint();
 };
 #endif

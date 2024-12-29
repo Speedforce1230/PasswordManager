@@ -7,12 +7,11 @@ CentralWidget::CentralWidget(QWidget* parent) : QWidget(parent){
     setLayout(main_layout.get());
     
 }
-void CentralWidget::setCurrentFrame(std::unique_ptr<CustomFrame> frame){
+void CentralWidget::setCurrentFrame(std::shared_ptr<CustomFrame> frame){
     int index = main_widget_stack->indexOf(frame.get());
     if (index == -1){
         main_widget_stack->addWidget(frame.get());
         index = main_widget_stack->indexOf(frame.get());
     }
     main_widget_stack->setCurrentIndex(index);
-    frame.release();
 }

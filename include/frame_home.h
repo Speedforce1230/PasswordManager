@@ -1,17 +1,14 @@
-#include "frame.h"
+#include "cache.h"
 using home_variant = std::variant<CustomButton*>;
 class MainWindow;
 class HomeFrame : public CustomFrame{
 public:
-    HomeFrame();
-    std::unique_ptr<CustomFrame> ReturnHomeFrame(bool create=true);
-    CustomButton* getButton(const QString& key);
+    void createHomeFrame(Cache& cache);
 private:
-    std::unique_ptr<CustomButton> generate_password;
-    std::unique_ptr<CustomButton> view_password;
-    std::unique_ptr<CustomFrame> home_frame;
-    std::unique_ptr<QBoxLayout> home_frame_layout;
+    unique_ptr<CustomButton> generate_password;
+    unique_ptr<CustomButton> view_password;
+    shared_ptr<CustomFrame> home_frame;
+    unique_ptr<QBoxLayout> home_frame_layout;
+    std::unordered_map<QString, CustomButton*> home_widget_cache;
     void cacheWidgets();
-    
-    std::unordered_map<QString, home_variant> home_widget_cache;
 };
