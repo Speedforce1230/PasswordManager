@@ -18,6 +18,7 @@ using all_variant_types = std::variant<
 class Cache{
 public:
     void cacheFrame(const QString& frame_key, shared_ptr<CustomFrame> frame);
+    void cacheButton(const QString& button_key,shared_ptr<CustomButton> button);
     template <typename type>
     shared_ptr<type> getCache(const QString& cache_key);
     shared_ptr<CustomFrame> getFrame(const QString& frame_key);

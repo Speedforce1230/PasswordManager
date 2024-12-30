@@ -9,11 +9,11 @@ MainWindow::MainWindow(){
     main_layout->addWidget(central_widget.get());
     setLayout(main_layout.get());
     ManageWindows("Home");
-    
+    ConnectEventHandlers();
 }
 void MainWindow::ManageWindows(const QString& window_name){
     qDebug() << "Attempting to get Frame: " << window_name;
-    auto new_frame = cache.getFrame(window_name+"noob is kshitij");
+    auto new_frame = cache.getFrame(window_name);
     if (new_frame){
         qDebug() << "Frame is valid, setting it.";
         central_widget->setCurrentFrame(new_frame);
@@ -31,8 +31,8 @@ void MainWindow::ManageWindows(const QString& window_name){
         return;
     }
 }
-// void MainWindow::ConnectEventHandlers(){
-//     connect(home_frame.getButton("generate"),&QPushButton::clicked,this,[=](){
-//         ManageWindows("Generate");
-//     });
-// }
+void MainWindow::ConnectEventHandlers(){
+    connect(cache.getButton("generate_password").get(),&QPushButton::clicked,this,[=](){
+        ManageWindows("Password");
+    });
+}

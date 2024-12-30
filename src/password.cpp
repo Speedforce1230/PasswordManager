@@ -1,23 +1,25 @@
 #include "frame_password.h"
 void PasswordFrame::createPasswordFrame(Cache& cache){
-	username_entry = std::make_unique<QLineEdit>();
-	password_entry = std::make_unique<QLineEdit>();
-	label_name = std::make_unique<QLabel>("Username");
-	label_password = std::make_unique<QLabel>("Password");
-	save_button = std::make_unique<CustomButton>("Save Password");
-	generate_button = std::make_unique<CustomButton>("Generate Password");
+	username_entry = std::make_shared<QLineEdit>();
+	password_entry = std::make_shared<QLineEdit>();
+	label_name = std::make_shared<QLabel>("Username");
+	label_password = std::make_shared<QLabel>("Password");
+	save_button = std::make_shared<CustomButton>("Save Password");
+	generate_button = std::make_shared<CustomButton>("Generate Password");
 	connect(generate_button.get(),&QPushButton::clicked,this,&PasswordFrame::GeneratePassword);
 	
 	password_frame = std::make_shared<CustomFrame>();
 	password_frame_layout = std::make_unique<QVBoxLayout>();
-	password_frame_layout->addWidget(label_name.release());
-	password_frame_layout->addWidget(username_entry.release());
-	password_frame_layout->addWidget(label_password.release());
-	password_frame_layout->addWidget(password_entry.release());
-	password_frame_layout->addWidget(generate_button.release());
-	password_frame_layout->addWidget(save_button.release());
+	password_frame_layout->addWidget(label_name.get());
+	password_frame_layout->addWidget(username_entry.get());
+	password_frame_layout->addWidget(label_password.get());
+	password_frame_layout->addWidget(password_entry.get());
+	password_frame_layout->addWidget(generate_button.get());
+	password_frame_layout->addWidget(save_button.get());
 	password_frame->setLayout(password_frame_layout.release());
 	cache.cacheFrame("Password",password_frame);
+	cache.cacheButton("generate_button",generate_button);
+	cache.cacheButton("save_button",save_button);
 }
 void PasswordFrame::GeneratePassword(){
     QString to_append;
