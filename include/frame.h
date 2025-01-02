@@ -17,11 +17,6 @@ class CustomFrame : public QFrame{
     Q_OBJECT
 public:
     CustomFrame(QWidget* parent=nullptr);
-    
-    std::shared_ptr<CustomButton> getButton(const QString& frame_name,const QString& button_name);
-protected:
-    void clearCache();
-    std::shared_ptr<CustomFrame> test();
 private:
     unique_ptr<QBoxLayout> main_layout;
     

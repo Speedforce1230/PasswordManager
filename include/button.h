@@ -13,6 +13,7 @@ public:
     CustomButton(QWidget* parent=nullptr);
     CustomButton(const QString& text, QWidget* parent=nullptr);
     CustomButton(const QIcon& icon, const QString& text, QWidget* parent=nullptr);
+    int factorSize(int factor);
 private:
     void Paint();
 };

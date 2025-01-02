@@ -22,7 +22,9 @@ CustomButton::CustomButton(const QString& text, QWidget* parent): QPushButton(te
         "color:rgb(255, 255, 255);"
         "}"
     );
+    adjustSize();
     setAutoFillBackground(true);
+    setFixedWidth(factorSize(1.5));
 }
 CustomButton::CustomButton(const QIcon& icon,const QString& text,QWidget* parent): QPushButton(icon,text,parent){
     setStyleSheet("QPushButton {"
@@ -35,4 +37,8 @@ CustomButton::CustomButton(const QIcon& icon,const QString& text,QWidget* parent
         "}"
     );
     setAutoFillBackground(true);
+}
+int CustomButton::factorSize(int factor) {
+    int new_width = static_cast<int>(sizeHint().width() * factor);
+    return new_width;
 }
