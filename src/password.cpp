@@ -20,8 +20,8 @@ void PasswordFrame::initWidgets() {
 	// if you want to connect a outside function to a button or anything else,
 	// use the desired cache.getXXX method to attach it. Don't directly include anything into here
 	// I am sick of circular includes.
-	username_entry = std::make_shared<QLineEdit>();
-	password_entry = std::make_shared<QLineEdit>();
+	username_entry = std::make_shared<CustomLineEntry>();
+	password_entry = std::make_shared<CustomLineEntry>();
 	label_name = std::make_shared<QLabel>("Username");
 	label_password = std::make_shared<QLabel>("Password");
 	save_button = std::make_shared<CustomButton>("Save Password");

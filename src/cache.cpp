@@ -25,6 +25,6 @@ void Cache::cacheCache() {
     all_caches["frame_cache"] = std::make_shared<unordered_map<QString, shared_ptr<CustomFrame>>>(frame_cache);
     all_caches["label_cache"] = std::make_shared<unordered_map<QString, shared_ptr<QLabel>>>(label_cache);
     all_caches["button_cache"] = std::make_shared<unordered_map<QString, shared_ptr<CustomButton>>>(button_cache);
-    all_caches["entry_cache"] = std::make_shared<unordered_map<QString, shared_ptr<QLineEdit>>>(entry_cache);
+    all_caches["entry_cache"] = std::make_shared<unordered_map<QString, shared_ptr<CustomLineEntry>>>(entry_cache);
 }
 

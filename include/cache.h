@@ -4,7 +4,6 @@
 
 #include <memory>
 #include <QFrame>
-#include <QLineEdit>
 #include "frame.h"
 using std::unordered_map;
 using std::shared_ptr;
@@ -12,7 +11,7 @@ using all_variant_types = std::variant<
     shared_ptr<unordered_map<QString, shared_ptr<CustomFrame>>>,
     shared_ptr<unordered_map<QString, shared_ptr<CustomButton>>>,
     shared_ptr<unordered_map<QString, shared_ptr<QLabel>>>,
-    shared_ptr<unordered_map<QString, shared_ptr<QLineEdit>>>
+    shared_ptr<unordered_map<QString, shared_ptr<CustomLineEntry>>>
 >;
 #pragma once
 class Cache{
@@ -28,7 +27,7 @@ private:
     unordered_map<QString, shared_ptr<CustomFrame>> frame_cache;
     unordered_map<QString, shared_ptr<CustomButton>> button_cache;
     unordered_map<QString, shared_ptr<QLabel>> label_cache;
-    unordered_map<QString, shared_ptr<QLineEdit>> entry_cache;
+    unordered_map<QString, shared_ptr<CustomLineEntry>> entry_cache;
     unordered_map<QString, all_variant_types> all_caches;
 };
 #include "cache.tpp"

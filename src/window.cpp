@@ -8,6 +8,7 @@ MainWindow::MainWindow(){
     password_frame.createPasswordFrame(cache);
     main_layout->addWidget(central_widget.get());
     setLayout(main_layout.get());
+    setStyleSheet("MainWindow{background-color:rgb(58, 55, 55)}");
     ManageWindows("Home");
     ConnectEventHandlers();
 }

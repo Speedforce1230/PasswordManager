@@ -4,6 +4,7 @@
 #include <QPushButton>
 #include <QWidget>
 #include "button.h"
+#include "entry.h"
 #include <QBoxLayout>
 #include <variant>
 #include <QLabel>
