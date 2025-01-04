@@ -28,8 +28,7 @@ void PasswordFrame::initWidgets() {
 	back_button = std::make_shared<CustomButton>("Back");
 	generate_button = std::make_shared<CustomButton>("Generate Password");
 	connect(generate_button.get(), &QPushButton::clicked, this, &PasswordFrame::generatePassword);
-	generate_button->setFixedWidth(generate_button->factorSize(2));
-	save_button->setFixedWidth(save_button->factorSize(2));
+	
 }
 unique_ptr<QBoxLayout> PasswordFrame::returnFrameLayout() {
 	// creates a top to bottom layout and returns it.

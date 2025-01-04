@@ -1,12 +1,13 @@
 #include "entry.h"
 
 CustomLineEntry::CustomLineEntry(QWidget* parent)
-    : QLineEdit(parent){
+    : QLineEdit(parent),m_backgroundColor(QColor(173,216,230)){
     setStyleSheet("QLineEdit{"
         "border-radius: 5px;"
-        "background-color: #ADD8E6;"
-        "color: #000080;"
-        "border: none;"
+        "background-color: #FFFFFF;"
+        "color: #3E2723;"
+        "border: 1px solid #FF5722;"
+        "padding: 2px;"
         "}"
     );
     setMouseTracking(true);
@@ -15,8 +16,8 @@ CustomLineEntry::CustomLineEntry(const QString& contents,QWidget* parent)
     : QLineEdit(contents,parent){
     setStyleSheet("QLineEdit{"
         "border-radius: 5px;"
-        "background-color: #ADD8E6;"
-        "color: #000080;"
+        "background-color: #FFFFFF;"
+        "color: #3E2723;"
         "border: none;"
         
         "}"
@@ -24,26 +25,24 @@ CustomLineEntry::CustomLineEntry(const QString& contents,QWidget* parent)
     setMouseTracking(true);
 }
 void CustomLineEntry::enterEvent(QEnterEvent* event){
-    animateEntry();
+    animate.animateColorTransition(this,m_backgroundColor,QColor(255, 204, 188),"backgroundColor");
     QLineEdit::enterEvent(event);
 }
 void CustomLineEntry::leaveEvent(QEvent* event){
-    animateExit();
+    animate.animateColorTransition(this,m_backgroundColor,QColor(255,255,255),"backgroundColor");
     QLineEdit::leaveEvent(event);
 }
-void CustomLineEntry::animateEntry(){
-    QPropertyAnimation* animation = new QPropertyAnimation(this,"backgroundColor");
-    animation->setDuration(150);
-    animation->setStartValue(QColor(173,216,230));
-    animation->setEndValue(QColor(135,206,235));
-    animation->start(QAbstractAnimation::DeleteWhenStopped);
+void CustomLineEntry::mousePressEvent(QMouseEvent* event){
+    if (event->button() == Qt::LeftButton){
+        animate.animateColorTransition(this,m_backgroundColor,QColor(255, 87, 34),"backgroundColor");
+    }
+    QLineEdit::mousePressEvent(event);
 }
-void CustomLineEntry::animateExit(){
-    QPropertyAnimation* animation = new QPropertyAnimation(this,"backgroundColor");
-    animation->setDuration(150);
-    animation->setStartValue(QColor(135,206,235));
-    animation->setEndValue(QColor(173,216,230));
-    animation->start(QAbstractAnimation::DeleteWhenStopped);
+void CustomLineEntry::mouseReleaseEvent(QMouseEvent* event){
+    if (event->button() == Qt::LeftButton){
+        animate.animateColorTransition(this,m_backgroundColor,QColor(255,255,255),"backgroundColor");
+    }
+    QLineEdit::mouseReleaseEvent(event);
 }
 QColor CustomLineEntry::backgroundColor() const {
     return m_backgroundColor;
@@ -51,7 +50,7 @@ QColor CustomLineEntry::backgroundColor() const {
 
 void CustomLineEntry::setBackgroundColor(const QColor& color) {
     m_backgroundColor = color;
-    QString qss = QString("QLineEdit { background-color: %1; color: #000080; border-radius: 5px; border: none; }")
+    QString qss = QString("QLineEdit { background-color: %1; color: #3E2723; border-radius: 5px; border: 1px solid #FF5722; padding: 2px;}")
                       .arg(color.name());
     setStyleSheet(qss);
 }
