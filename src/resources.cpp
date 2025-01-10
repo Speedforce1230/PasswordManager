@@ -4,7 +4,7 @@ Resources::Resources(){
     entry_qss = std::make_shared<QString>("QLineEdit{"
         "border-radius: 10px;"
         "background-color: %1;"
-        "color: %2;"
+        "color: #3E2723;"
         "border: 1px solid #FF5722;"
         "padding: 2px;"
         "}");

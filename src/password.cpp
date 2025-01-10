@@ -19,8 +19,8 @@ void PasswordFrame::initWidgets(Cache& cache) {
 	// if you want to connect a outside function to a button or anything else,
 	// use the desired cache.getXXX method to attach it. Don't directly include anything into here
 	// I am sick of circular includes.
-	username_entry = std::make_shared<CustomLineEntry>();
-	password_entry = std::make_shared<CustomLineEntry>();
+	username_entry = std::make_shared<CustomLineEntry>(cache);
+	password_entry = std::make_shared<CustomLineEntry>(cache);
 	label_name = std::make_shared<QLabel>("Username");
 	label_password = std::make_shared<QLabel>("Password");
 	save_button = std::make_shared<CustomButton>("Save Password",cache);
@@ -39,7 +39,7 @@ unique_ptr<QBoxLayout> PasswordFrame::returnFrameLayout() {
 	layout->addWidget(username_entry.get(), 0);
 	layout->addWidget(label_password.get(), 0, Qt::AlignCenter);
 	layout->addWidget(password_entry.get(), 0);
-	layout->addWidget(generate_button.get());
+	layout->addWidget(generate_button.get(),0,Qt::AlignCenter);
 	layout->addWidget(save_button.get(), 0, Qt::AlignCenter);
 	layout->addSpacerItem(bottom_spacer);
 	return std::move(layout);

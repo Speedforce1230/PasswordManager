@@ -17,8 +17,8 @@ void ViewFrame::initWidgets(Cache& cache) {
     // Avoid direct includes to prevent circular dependencies.
     testButton1 = std::make_shared<CustomButton>("TESTING 1",cache);
     testButton2 = std::make_shared<CustomButton>("TESTING 2",cache);
-    testEntry1 = std::make_shared<CustomLineEntry>();
-    testEntry2 = std::make_shared<CustomLineEntry>();
+    testEntry1 = std::make_shared<CustomLineEntry>(cache);
+    testEntry2 = std::make_shared<CustomLineEntry>(cache);
 }
 std::unique_ptr<QBoxLayout> ViewFrame::returnFrameLayout(){
     std::unique_ptr<QBoxLayout> layout = std::make_unique<QVBoxLayout>();

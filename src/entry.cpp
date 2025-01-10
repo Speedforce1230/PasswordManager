@@ -1,46 +1,46 @@
 #include "entry.h"
+#include "cache.h"
+CustomLineEntry::CustomLineEntry(Cache& cache,QWidget* parent)
+    : QLineEdit(parent){
+    hover_color = QColor(255,204,188);
+    click_color = QColor(255, 87, 34);
+    initial_color = Qt::white;
+    m_backgroundColor = initial_color;
 
-CustomLineEntry::CustomLineEntry(QWidget* parent)
-    : QLineEdit(parent),m_backgroundColor(QColor(173,216,230)){
-    setStyleSheet("QLineEdit{"
-        "border-radius: 10px;"
-        "background-color: #FFFFFF;"
-        "color: #3E2723;"
-        "border: 1px solid #FF5722;"
-        "padding: 2px;"
-        "}"
-    );
+    resources.cacheResources(cache);
+    entry_qss = cache.getQss("entry_qss");
+    setStyleSheet(QString(*entry_qss).arg(m_backgroundColor.name()));
     setMouseTracking(true);
 }
-CustomLineEntry::CustomLineEntry(const QString& contents,QWidget* parent)
+CustomLineEntry::CustomLineEntry(const QString& contents,Cache& cache,QWidget* parent)
     : QLineEdit(contents,parent){
-    setStyleSheet("QLineEdit{"
-        "border-radius: 10px;"
-        "background-color: #FFFFFF;"
-        "color: #3E2723;"
-        "border: none;"
-        
-        "}"
-    );
+    hover_color = QColor(255,204,188);
+    click_color = QColor(255, 87, 34);
+    initial_color = Qt::white;
+    m_backgroundColor = initial_color;
+
+    resources.cacheResources(cache);
+    entry_qss = cache.getQss("entry_qss");
+    setStyleSheet(QString(*entry_qss).arg(m_backgroundColor.name()));
     setMouseTracking(true);
 }
 void CustomLineEntry::enterEvent(QEnterEvent* event){
-    animate.animateColorTransition(this,m_backgroundColor,QColor(255, 204, 188),"backgroundColor");
+    animate.animateColorTransition(this,m_backgroundColor,hover_color,"backgroundColor");
     QLineEdit::enterEvent(event);
 }
 void CustomLineEntry::leaveEvent(QEvent* event){
-    animate.animateColorTransition(this,m_backgroundColor,QColor(255,255,255),"backgroundColor");
+    animate.animateColorTransition(this,m_backgroundColor,initial_color,"backgroundColor");
     QLineEdit::leaveEvent(event);
 }
 void CustomLineEntry::mousePressEvent(QMouseEvent* event){
     if (event->button() == Qt::LeftButton){
-        animate.animateColorTransition(this,m_backgroundColor,QColor(255, 87, 34),"backgroundColor");
+        animate.animateColorTransition(this,m_backgroundColor,click_color,"backgroundColor");
     }
     QLineEdit::mousePressEvent(event);
 }
 void CustomLineEntry::mouseReleaseEvent(QMouseEvent* event){
     if (event->button() == Qt::LeftButton){
-        animate.animateColorTransition(this,m_backgroundColor,QColor(255,255,255),"backgroundColor");
+        animate.animateColorTransition(this,m_backgroundColor,initial_color,"backgroundColor");
     }
     QLineEdit::mouseReleaseEvent(event);
 }
@@ -50,7 +50,5 @@ QColor CustomLineEntry::backgroundColor() const {
 
 void CustomLineEntry::setBackgroundColor(const QColor& color) {
     m_backgroundColor = color;
-    QString qss = QString("QLineEdit { background-color: %1; color: #3E2723; border-radius: 10px; border: 1px solid #FF5722; padding: 2px;}")
-                      .arg(color.name());
-    setStyleSheet(qss);
+    setStyleSheet(QString(*entry_qss).arg(m_backgroundColor.name()));
 }

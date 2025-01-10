@@ -25,6 +25,8 @@ protected:
     void leaveEvent(QEvent* event) override;
     void mousePressEvent(QMouseEvent* event) override;
     void mouseReleaseEvent(QMouseEvent* event) override;
+private slots:
+    void onTimeout();
 private:
     QColor textColor() const;
     QColor backgroundColor() const;
@@ -32,6 +34,12 @@ private:
     void setBackgroundColor(const QColor& color);
     QColor m_backgroundColor;
     QColor m_textColor;
+    QColor initial_background_color;
+    QColor initial_text_color;
+    QColor hover_background_color;
+    QColor hover_text_color;
+    QColor click_background_color;
+    QColor click_text_color;
     Animate animate;
     std::unique_ptr<QTimer> timer;
     std::shared_ptr<QString> button_qss;
