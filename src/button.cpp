@@ -1,6 +1,6 @@
 #include "button.h"
-
-CustomButton::CustomButton(QWidget* parent) 
+#include "cache.h"
+CustomButton::CustomButton(Cache& cache,QWidget* parent) 
     : QPushButton(parent), m_backgroundColor(Qt::black),m_textColor(Qt::white){
     setStyleSheet("QPushButton {"
         "border-radius: 5px;"
@@ -12,24 +12,18 @@ CustomButton::CustomButton(QWidget* parent)
     setAutoFillBackground(true);
     setMouseTracking(true);
 }
-CustomButton::CustomButton(const QString& text, QWidget* parent)
+CustomButton::CustomButton(const QString& text, Cache& cache,QWidget* parent)
     : QPushButton(text,parent){
     m_textColor = QColor(255, 87, 34);
     m_backgroundColor = QColor(255,255,255);
     timer = std::make_unique<QTimer>();
-    timer->setSingleShot(true);
-    setStyleSheet("QPushButton {"
-        "border-radius: 5px;"
-        "background-color: rgb(255,255,255);" 
-        "color: rgb(255, 87, 34);"
-        "border: 1px solid #FF5722;"
-        "padding: 3px;"
-        "}"
-    );
+    resources.cacheResources(cache);
+    button_qss = cache.getQss("button_qss");
+    setStyleSheet(QString(*button_qss).arg(m_backgroundColor.name(),m_textColor.name()));
     setMouseTracking(true);
-    setFixedWidth(factorSize(2));
+    setMinimumWidth(factorSize(2));
 }
-CustomButton::CustomButton(const QIcon& icon,const QString& text,QWidget* parent)
+CustomButton::CustomButton(const QIcon& icon,const QString& text, Cache& cache,QWidget* parent)
     : QPushButton(icon,text,parent), m_backgroundColor(Qt::black),m_textColor(Qt::white){
     setStyleSheet("QPushButton {"
         "border-radius: 5px;"
@@ -67,8 +61,8 @@ void CustomButton::mouseReleaseEvent(QMouseEvent* event){
     if (event->button() == Qt::LeftButton){
         timer->start(200);
         connect(timer.get(), &QTimer::timeout,this,[this](){
-            animate.animateColorTransition(this,m_backgroundColor,QColor(255, 87, 34),"backgroundColor");
-            animate.animateColorTransition(this,m_textColor,QColor(255, 255, 255),"textColor");
+            animate.animateColorTransition(this,m_backgroundColor,QColor(255,255,255),"backgroundColor");
+            animate.animateColorTransition(this,m_textColor,QColor(255, 87, 34),"textColor");
         });
     }
     QPushButton::mouseReleaseEvent(event);
@@ -92,13 +86,5 @@ void CustomButton::setTextColor(const QColor& color){
     }
 }
 void CustomButton::updateStylesheets(){
-    QString qss= QString("QPushButton{"
-    "background-color: %1;" 
-    "color: %2;" 
-    "border-radius: 5px;" 
-    "border:1px solid %1;" 
-    "padding: 3px;"
-    "}")
-    .arg(m_backgroundColor.name(),m_textColor.name());
-    setStyleSheet(qss);
+    setStyleSheet(QString(*button_qss).arg(m_backgroundColor.name(),m_textColor.name()));
 }

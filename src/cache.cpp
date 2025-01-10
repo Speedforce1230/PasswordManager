@@ -1,9 +1,19 @@
 #include "cache.h"
+#include "button.h"
+#include "entry.h"
 void Cache::cacheFrame(const QString& frame_key, std::shared_ptr<CustomFrame> frame){
     frame_cache[frame_key] = frame;
 }
 void Cache::cacheButton(const QString& button_key,shared_ptr<CustomButton> button){
-    button_cache[button_key] = button;
+    if (button_cache.find(button_key) != button_cache.end()){
+        qDebug() << "Duplicate Key detected: " << button_key;
+    }
+    else{
+        button_cache[button_key] = button;
+    }
+}
+void Cache::cacheQss(const QString& qss_key, shared_ptr<QString> qss){
+    qss_cache[qss_key] = qss; 
 }
 shared_ptr<CustomFrame> Cache::getFrame(const QString& frame_key){
     if (frame_cache.find(frame_key) != frame_cache.end()){
@@ -19,6 +29,14 @@ shared_ptr<CustomButton> Cache::getButton(const QString& button_key){
         return button_cache[button_key];
     }
     qDebug() << "Failed to get button";
+    return nullptr;
+}
+shared_ptr<QString> Cache::getQss(const QString& qss_key){
+    if (qss_cache.find(qss_key) != qss_cache.end()){
+        qDebug() << "getting qss " << qss_key;
+        return qss_cache[qss_key];
+    }
+    qDebug() << "Failed to get qss";
     return nullptr;
 }
 void Cache::cacheCache() {

@@ -3,7 +3,7 @@
 CustomLineEntry::CustomLineEntry(QWidget* parent)
     : QLineEdit(parent),m_backgroundColor(QColor(173,216,230)){
     setStyleSheet("QLineEdit{"
-        "border-radius: 5px;"
+        "border-radius: 10px;"
         "background-color: #FFFFFF;"
         "color: #3E2723;"
         "border: 1px solid #FF5722;"
@@ -15,7 +15,7 @@ CustomLineEntry::CustomLineEntry(QWidget* parent)
 CustomLineEntry::CustomLineEntry(const QString& contents,QWidget* parent)
     : QLineEdit(contents,parent){
     setStyleSheet("QLineEdit{"
-        "border-radius: 5px;"
+        "border-radius: 10px;"
         "background-color: #FFFFFF;"
         "color: #3E2723;"
         "border: none;"
@@ -50,7 +50,7 @@ QColor CustomLineEntry::backgroundColor() const {
 
 void CustomLineEntry::setBackgroundColor(const QColor& color) {
     m_backgroundColor = color;
-    QString qss = QString("QLineEdit { background-color: %1; color: #3E2723; border-radius: 5px; border: 1px solid #FF5722; padding: 2px;}")
+    QString qss = QString("QLineEdit { background-color: %1; color: #3E2723; border-radius: 10px; border: 1px solid #FF5722; padding: 2px;}")
                       .arg(color.name());
     setStyleSheet(qss);
 }

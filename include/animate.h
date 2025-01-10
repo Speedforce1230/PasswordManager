@@ -11,4 +11,5 @@ public:
     void animateSizeChange(QObject* target,const QSize& initial_size, const QSize& final_size, const QString& property_name, int duration=150);
 private:
 };
+#pragma once
 #endif

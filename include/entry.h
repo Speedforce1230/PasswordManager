@@ -27,4 +27,5 @@ private:
     void animateEntry();
     void animateExit();
 };
+#pragma once
 #endif

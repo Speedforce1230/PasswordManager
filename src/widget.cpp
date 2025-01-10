@@ -1,5 +1,5 @@
 #include "widget.h"
-
+#include "frame.h"
 CentralWidget::CentralWidget(QWidget* parent) : QWidget(parent){
     main_layout = std::make_unique<QVBoxLayout>(this);
     main_widget_stack = std::make_unique<QStackedWidget>(this);

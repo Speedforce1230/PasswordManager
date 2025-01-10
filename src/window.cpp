@@ -1,11 +1,14 @@
 #include "window.h"
+#include "button.h"
+#include "widget.h"
 MainWindow::MainWindow(){
     setWindowTitle("Password Manager");
     setFixedSize(600, 800);
     central_widget = std::make_unique<CentralWidget>(this);
     main_layout = std::make_unique<QVBoxLayout>(this);
     home_frame.createHomeFrame(cache);
-    password_frame.createPasswordFrame(cache);
+    passwordFrame.createPasswordFrame(cache);
+    view_frame.createViewFrame(cache);
     main_layout->addWidget(central_widget.get());
     setLayout(main_layout.get());
     setStyleSheet("MainWindow{background-color:rgb(58, 55, 55)}");
@@ -35,7 +38,16 @@ void MainWindow::ConnectEventHandlers(){
     connect(cache.getButton("generate_password").get(),&QPushButton::clicked,this,[=](){
         ManageWindows("Password");
     });
-    connect(cache.getButton("back_button").get(),&QPushButton::clicked,this,[=](){
+    connect(cache.getButton("back").get(),&QPushButton::clicked,this,[=](){
+        ManageWindows("Home");
+    });
+    connect(cache.getButton("generateButton").get(),&QPushButton::clicked,this,[=](){
+        passwordFrame.setPassword();
+    });
+    connect(cache.getButton("saveButton").get(),&QPushButton::clicked,this,[=](){
+        ManageWindows("Home");
+    });
+    connect(cache.getButton("testButton1").get(),&QPushButton::clicked,this,[=](){
         ManageWindows("Home");
     });
 }
