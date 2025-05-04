@@ -1,3 +1,9 @@
+/*
+   MIT License
+   Copyright (c) 2025 Vasu Dhall(Speedforce1230)
+   Please retain this copyright notice when using or modifying this project.
+*/
+
 #include "cache.h"
 #include "button.h"
 #include "entry.h"
