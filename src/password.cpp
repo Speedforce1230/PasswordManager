@@ -36,9 +36,9 @@ unique_ptr<QBoxLayout> PasswordFrame::returnFrameLayout() {
 	layout->addWidget(back_button.get(), 0, Qt::AlignLeft);
 	layout->addSpacerItem(top_spacer);
 	layout->addWidget(label_name.get(), 0, Qt::AlignCenter);
-	layout->addWidget(username_entry.get(), 0);
+	layout->addWidget(username_entry.get(), 0,Qt::AlignHCenter);
 	layout->addWidget(label_password.get(), 0, Qt::AlignCenter);
-	layout->addWidget(password_entry.get(), 0);
+	layout->addWidget(password_entry.get(), 0,Qt::AlignHCenter);
 	layout->addWidget(generate_button.get(),0,Qt::AlignCenter);
 	layout->addWidget(save_button.get(), 0, Qt::AlignCenter);
 	layout->addSpacerItem(bottom_spacer);
@@ -87,4 +87,6 @@ void PasswordFrame::cacheWidgets(Cache& cache){
 	cache.cacheButton("generateButton", generate_button);
 	cache.cacheButton("saveButton", save_button);
 	cache.cacheButton("back", back_button);
-}
+	cache.cacheEntry("username_entry", username_entry);
+	cache.cacheEntry("password_entry", password_entry);
+}	

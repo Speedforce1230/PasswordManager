@@ -9,8 +9,9 @@ CustomLineEntry::CustomLineEntry(Cache& cache,QWidget* parent)
 
     resources.cacheResources(cache);
     entry_qss = cache.getQss("entry_qss");
-    setStyleSheet(QString(*entry_qss).arg(m_backgroundColor.name()));
+    setStyleSheet(QString(*entry_qss).arg(backgroundColor().name()));
     setMouseTracking(true);
+    setFixedWidth(400);
 }
 CustomLineEntry::CustomLineEntry(const QString& contents,Cache& cache,QWidget* parent)
     : QLineEdit(contents,parent){
@@ -21,34 +22,36 @@ CustomLineEntry::CustomLineEntry(const QString& contents,Cache& cache,QWidget* p
 
     resources.cacheResources(cache);
     entry_qss = cache.getQss("entry_qss");
-    setStyleSheet(QString(*entry_qss).arg(m_backgroundColor.name()));
+    setStyleSheet(QString(*entry_qss).arg(backgroundColor().name()));
     setMouseTracking(true);
 }
+// Hover events
 void CustomLineEntry::enterEvent(QEnterEvent* event){
-    animate.animateColorTransition(this,m_backgroundColor,hover_color,"backgroundColor");
+    animate.animateColorTransition(this,backgroundColor(),hover_color,"backgroundColor");
     QLineEdit::enterEvent(event);
 }
 void CustomLineEntry::leaveEvent(QEvent* event){
-    animate.animateColorTransition(this,m_backgroundColor,initial_color,"backgroundColor");
+    animate.animateColorTransition(this,backgroundColor(),initial_color,"backgroundColor");
     QLineEdit::leaveEvent(event);
 }
+// Click events
 void CustomLineEntry::mousePressEvent(QMouseEvent* event){
     if (event->button() == Qt::LeftButton){
-        animate.animateColorTransition(this,m_backgroundColor,click_color,"backgroundColor");
+        animate.animateColorTransition(this,backgroundColor(),click_color,"backgroundColor");
     }
     QLineEdit::mousePressEvent(event);
 }
 void CustomLineEntry::mouseReleaseEvent(QMouseEvent* event){
     if (event->button() == Qt::LeftButton){
-        animate.animateColorTransition(this,m_backgroundColor,initial_color,"backgroundColor");
+        animate.animateColorTransition(this,backgroundColor(),initial_color,"backgroundColor");
     }
     QLineEdit::mouseReleaseEvent(event);
 }
 QColor CustomLineEntry::backgroundColor() const {
     return m_backgroundColor;
 }
-
+// Will be called each time the property is changed.
 void CustomLineEntry::setBackgroundColor(const QColor& color) {
     m_backgroundColor = color;
-    setStyleSheet(QString(*entry_qss).arg(m_backgroundColor.name()));
+    setStyleSheet(QString(*entry_qss).arg(backgroundColor().name()));
 }

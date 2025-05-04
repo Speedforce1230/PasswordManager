@@ -13,6 +13,7 @@
 #include "resources.h"
 class CustomButton : public QPushButton{
     Q_OBJECT
+    // Make sure to defind the methods for all and when using the properties, keep the name same as the getter name.
     Q_PROPERTY(QColor backgroundColor READ backgroundColor WRITE setBackgroundColor)
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor)
 public:
@@ -28,6 +29,7 @@ protected:
 private slots:
     void onTimeout();
 private:
+    // getters and setters for the properties.
     QColor textColor() const;
     QColor backgroundColor() const;
     void setTextColor(const QColor& color);

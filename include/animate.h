@@ -4,6 +4,10 @@
 #include <QPropertyAnimation>
 #include <QMouseEvent>
 #include <QTimer>
+#include <QStackedWidget>
+#include <QParallelAnimationGroup>
+#include <memory>
+using std::unique_ptr;
 class Animate : QPropertyAnimation{
     Q_OBJECT
 public:

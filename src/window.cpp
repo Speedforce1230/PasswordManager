@@ -1,6 +1,7 @@
 #include "window.h"
 #include "button.h"
 #include "widget.h"
+#include "entry.h"
 MainWindow::MainWindow(){
     setWindowTitle("Password Manager");
     setFixedSize(600, 800);
@@ -13,7 +14,7 @@ MainWindow::MainWindow(){
     setLayout(main_layout.get());
     setStyleSheet("MainWindow{background-color:rgb(58, 55, 55)}");
     ManageWindows("Home");
-    ConnectEventHandlers();
+    connectEventHandlers();
 }
 void MainWindow::ManageWindows(const QString& window_name){
     qDebug() << "Attempting to get Frame: " << window_name;
@@ -34,11 +35,13 @@ void MainWindow::ManageWindows(const QString& window_name){
         qDebug() << "Cache doesn't exist in the map, please recheck your types and keys";
     }
 }
-void MainWindow::ConnectEventHandlers(){
+void MainWindow::connectEventHandlers(){
     connect(cache.getButton("generate_password").get(),&QPushButton::clicked,this,[=](){
         ManageWindows("Password");
     });
     connect(cache.getButton("back").get(),&QPushButton::clicked,this,[=](){
+        cache.getEntry("username_entry")->setText("");
+        cache.getEntry("password_entry")->setText("");
         ManageWindows("Home");
     });
     connect(cache.getButton("generateButton").get(),&QPushButton::clicked,this,[=](){

@@ -5,6 +5,7 @@
 #include <QString>
 #include <QBoxLayout>
 #include <QPushButton>
+#include <QTimer>
 #include "forward.h"
 #include "cache.h"
 #include "frame_home.h"
@@ -27,7 +28,8 @@ private:
     Cache cache;
     HomeFrame home_frame;
     ViewFrame view_frame;
-    void ConnectEventHandlers();
+    void connectEventHandlers();
+    void startFadeOut();
 };
 #pragma once
 #endif // WINDOW_H

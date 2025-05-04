@@ -12,9 +12,9 @@
 #include "resources.h"
 class CustomLineEntry : public QLineEdit{
     Q_OBJECT
+    // Make sure to defind the methods for all and when using the properties, keep the name same as the getter name.
     Q_PROPERTY(QColor backgroundColor READ backgroundColor WRITE setBackgroundColor)
 public:
-    
     explicit CustomLineEntry(Cache& cache,QWidget* parent=nullptr);
     CustomLineEntry(const QString& contents,Cache& cache, QWidget* parent=nullptr);
 protected:
@@ -23,6 +23,7 @@ protected:
     void mousePressEvent(QMouseEvent* event) override;
     void mouseReleaseEvent(QMouseEvent* event) override;
 private:
+    // getter and setter for the property
     QColor backgroundColor() const;
     void setBackgroundColor(const QColor& color);
     QColor m_backgroundColor;

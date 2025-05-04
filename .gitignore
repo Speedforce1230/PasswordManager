@@ -2,7 +2,6 @@
 build/
 out/
 
-# Ignore Visual Studio Code settings (optional)
 .vscode/
 .vs/
 # Ignore OS generated files

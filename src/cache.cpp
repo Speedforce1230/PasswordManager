@@ -12,6 +12,9 @@ void Cache::cacheButton(const QString& button_key,shared_ptr<CustomButton> butto
         button_cache[button_key] = button;
     }
 }
+void Cache::cacheEntry(const QString& entry_key, shared_ptr<CustomLineEntry> entry){
+    entry_cache[entry_key] = entry;
+}
 void Cache::cacheQss(const QString& qss_key, shared_ptr<QString> qss){
     qss_cache[qss_key] = qss; 
 }
@@ -21,6 +24,14 @@ shared_ptr<CustomFrame> Cache::getFrame(const QString& frame_key){
         return frame_cache[frame_key];
     }
     qDebug() << "Failed to get frame";
+    return nullptr;
+}
+shared_ptr<CustomLineEntry> Cache::getEntry(const QString& entry_key){
+    if (entry_cache.find(entry_key) != entry_cache.end()){
+        qDebug() << "getting entry " << entry_key; 
+        return entry_cache[entry_key];
+    }
+    qDebug() << "Failed to get entry";
     return nullptr;
 }
 shared_ptr<CustomButton> Cache::getButton(const QString& button_key){
