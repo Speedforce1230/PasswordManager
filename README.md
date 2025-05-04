@@ -14,13 +14,14 @@ Qt 6.x (or latest stable Qt version)
 CMake
 
 Building the Project
-bash
-git clone <your-repo-url>
-cd <your-project-directory>
-mkdir build && cd build
-cmake ..
-make
-./your-executable-name
+ ```bash
+ git clone <your-repo-url>
+ cd <your-project-directory>
+ mkdir build && cd build
+ cmake ..
+ make
+ ./your-executable-name
+```
 Project Structure
 /src
  ├── main.cpp        # Main application entry point
