@@ -2,11 +2,12 @@
 #define WIDGET_H
 #include <QApplication>
 #include <QWidget>
-#include <QVBoxLayout>
+#include <QBoxLayout>
 #include <QStackedWidget>
 #include <QString>
-#include "frame.h"
 #include <memory>
+#include "forward.h"
+#include "animate.h"
 #pragma once
 class CentralWidget : public QWidget{
     Q_OBJECT
@@ -15,6 +16,8 @@ public:
     void setCurrentFrame(std::shared_ptr<CustomFrame> frame);
     std::unique_ptr<QStackedWidget> main_widget_stack;
 private:
-    std::unique_ptr<QVBoxLayout> main_layout;
+    std::unique_ptr<QBoxLayout> main_layout;
+    Animate animate;
 };
+#pragma once
 #endif // WIDGET_H

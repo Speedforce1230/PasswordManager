@@ -4,9 +4,13 @@
 #include <QWidget>
 #include <QString>
 #include <QBoxLayout>
-#include "widget.h"
-#include "all_frames.h"
+#include <QPushButton>
+#include <QTimer>
+#include "forward.h"
 #include "cache.h"
+#include "frame_home.h"
+#include "frame_password.h"
+#include "frame_view.h"
 #include <memory>
 #pragma once
 class MainWindow : public QWidget{
@@ -19,11 +23,13 @@ private:
     // For each derived frame, include it and declare it here then, if you need,
     // attach your connections in the ConnectEventHandlers method to avoid circular includes.
     std::unique_ptr<CentralWidget> central_widget;
-    std::unique_ptr<QVBoxLayout> main_layout;
-    std::unique_ptr<CustomFrame> custom_frame;
+    std::unique_ptr<QBoxLayout> main_layout;
+    PasswordFrame passwordFrame;
     Cache cache;
     HomeFrame home_frame;
-    PasswordFrame password_frame;
-    void ConnectEventHandlers();
+    ViewFrame view_frame;
+    void connectEventHandlers();
+    void startFadeOut();
 };
+#pragma once
 #endif // WINDOW_H

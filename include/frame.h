@@ -3,12 +3,10 @@
 #include <QFrame>
 #include <QPushButton>
 #include <QWidget>
-#include "button.h"
 #include <QBoxLayout>
 #include <variant>
 #include <QLabel>
-template <typename type>
-using unique_ptr = std::unique_ptr<type>;
+using std::unique_ptr;
 #pragma once
 // Class has multiple derived classes.
 // Dated 23rd of December, 2024. Class has two derived classes, PasswordFrame and HomeFrame.
@@ -21,4 +19,5 @@ private:
     unique_ptr<QBoxLayout> main_layout;
     
 };
+#pragma once
 #endif
