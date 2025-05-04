@@ -1,6 +1,7 @@
-Qt Widgets Project - Scalable UI Framework
-Overview
-This project is a modular Qt Widgets application designed with scalability and efficiency in mind. It utilizes a QStackedWidget-based navigation system, a centralized cache for UI elements, and a custom animation framework to deliver a smooth and expandable interface.
+**Qt Widgets Project - Scalable UI Framework**   
+**Overview**   
+This project is a modular Qt Widgets application designed with scalability and efficiency in mind.  
+It utilizes a QStackedWidget-based navigation system, a centralized cache for UI elements, and a custom animation framework to deliver a smooth and expandable interface.  
 
 **Features**  
 ✅ Modular Navigation System – Easily switch between frames using a structured caching system.   
@@ -37,7 +38,8 @@ CMake
  ├── widgets/        # Custom Qt widget classes (buttons, entries, etc.)  
  ├── frames/         # Individual application frames (modular for easy expansion)  
 /CMakeLists.txt      # Build configuration for CMake  
-/README.md           # Documentation (this file)  
+/README.md           # Documentation (this file)    
+  
 **Future Enhancements**  
 📌 Persistent caching implementation (maintain states across sessions).   
 📌 Lazy-loading UI frames for better performance on complex applications.   
