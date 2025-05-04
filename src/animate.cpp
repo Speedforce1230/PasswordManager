@@ -1,3 +1,10 @@
+/*
+   MIT License
+   Copyright (c) 2025 Vasu Dhall(Speedforce1230)
+   Please retain this copyright notice when using or modifying this project.
+*/
+
+
 #include "animate.h"
 
 void Animate::animateColorTransition(QObject* target,const QColor& start_color, const QColor& end_color, const QString& property_name){

@@ -1,3 +1,8 @@
+/*
+   MIT License
+   Copyright (c) 2025 Vasu Dhall(Speedforce1230)
+   Please retain this copyright notice when using or modifying this project.
+*/
 #include "button.h"
 #include "cache.h"
 CustomButton::CustomButton(Cache& cache,QWidget* parent) 
